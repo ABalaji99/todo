@@ -1,18 +1,33 @@
 import React from "react";
+import { FaEdit } from "react-icons/fa";
+import { RiDeleteBin5Fill } from "react-icons/ri";
+
+
+
+
+
 
 const TodoList = ({ todos, handleDelete, handleEdit }) => {
+
+  
   return (
-    <ul className="allTodos">
-      {todos.map((t) => (
-        <li className="singleTodo">
+    <ol className="allTodos">
+      {todos.map((t,index) => (
+        <div className="listblock" key={index}>
+            <li className="singleTodo" >
           <span className="todoText" key={t.id}>
-            {t.todo}
+           {t.todo}
           </span>
-          <button onClick={() => handleEdit(t.id)}>Edit</button>
-          <button onClick={() => handleDelete(t.id)}>Delete</button>
         </li>
+        <span className="btns">
+        
+          <button onClick={() => handleEdit(t.id)}><FaEdit/></button>
+          <button onClick={() => handleDelete(t.id)}><RiDeleteBin5Fill/></button>
+          </span>
+        </div>
+      
       ))}
-    </ul>
+    </ol>
   );
 };
 

@@ -33,18 +33,20 @@ const App = () => {
   const handleDelete = (id) => {
     const delTodo = todos.filter((to) => to.id !== id);
     setTodos([...delTodo]);
+    window.confirm('sure you want to delete?')
   };
 
   const handleEdit = (id) => {
     const editTodo = todos.find((i) => i.id === id);
     setTodo(editTodo.todo);
     setEditId(id);
+   
   };
 
   return (
     <div className="App">
-      <div className="container">
-        <h1>Todo List App</h1>
+      <div className="container todo">
+        <h2>TO DO LISTS</h2>
         <TodoForm
           handleSubmit={handleSubmit}
           todo={todo}
